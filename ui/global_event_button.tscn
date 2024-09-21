@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctl5bt8juinnq"]
+
+[ext_resource type="Script" path="res://ui/global_event_button.gd" id="1_x1va1"]
+
+[node name="GlobalEventButton" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("1_x1va1")
+
+[connection signal="pressed" from="." to="." method="send_event"]

@@ -1,0 +1,132 @@
+[gd_scene load_steps=10 format=3 uid="uid://bjkgawg84pykg"]
+
+[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="1_1ceqg"]
+[ext_resource type="Script" path="res://ui/game_ui.gd" id="1_jkh7s"]
+[ext_resource type="PackedScene" uid="uid://ctl5bt8juinnq" path="res://ui/global_event_button.tscn" id="1_yrv52"]
+[ext_resource type="Texture2D" uid="uid://cpti3c1q6nhpc" path="res://assets/icons/target.png" id="2_wiw33"]
+[ext_resource type="PackedScene" uid="uid://bc6jcxd0jhtlk" path="res://ui/camera_type_button.tscn" id="5_44c6v"]
+[ext_resource type="Texture2D" uid="uid://dxvl2yqvg1lc" path="res://assets/icons/arrowLeft.png" id="5_bxnir"]
+[ext_resource type="Texture2D" uid="uid://buvl5qmqlw1ii" path="res://assets/icons/target_active.png" id="5_w6h7j"]
+[ext_resource type="Texture2D" uid="uid://cn2jc1ujaotbb" path="res://assets/icons/focus.png" id="7_87gkt"]
+[ext_resource type="Texture2D" uid="uid://wdapdqywfgx8" path="res://assets/icons/return.png" id="8_60xls"]
+
+[node name="GameUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jkh7s")
+
+[node name="MoveUI" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MoveJoystick" parent="MoveUI" instance=ExtResource("1_1ceqg")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -300.0
+offset_top = -300.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+
+[node name="RotateJoystick" parent="MoveUI" instance=ExtResource("1_1ceqg")]
+layout_mode = 1
+offset_top = -300.0
+offset_bottom = 0.0
+joystick_mode = 1
+use_input_actions = false
+
+[node name="GlobalEventButton" parent="MoveUI" instance=ExtResource("1_yrv52")]
+texture_filter = 1
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -300.0
+offset_right = 150.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
+icon = ExtResource("2_wiw33")
+flat = true
+icon_alignment = 1
+expand_icon = true
+event = 1
+
+[node name="PhotoUI" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PhotoUI"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -300.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="GlobalEventButton" parent="PhotoUI/HBoxContainer" instance=ExtResource("1_yrv52")]
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 2
+icon = ExtResource("5_bxnir")
+flat = true
+icon_alignment = 1
+expand_icon = true
+event = 2
+
+[node name="CameraTypeButton" parent="PhotoUI/HBoxContainer" instance=ExtResource("5_44c6v")]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="TakePhoto" type="Button" parent="PhotoUI/HBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+icon = ExtResource("5_w6h7j")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Stabilize" type="Button" parent="PhotoUI/HBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+icon = ExtResource("7_87gkt")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Reset" type="Button" parent="PhotoUI/HBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+icon = ExtResource("8_60xls")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[connection signal="pressed" from="MoveUI/GlobalEventButton" to="." method="_on_global_event_button_pressed"]
+[connection signal="pressed" from="PhotoUI/HBoxContainer/GlobalEventButton" to="." method="_on_move_activated"]
+[connection signal="changed_rotation_type" from="PhotoUI/HBoxContainer/CameraTypeButton" to="." method="_on_camera_type_button_changed_rotation_type"]
+[connection signal="pressed" from="PhotoUI/HBoxContainer/Stabilize" to="." method="_on_stabilize_pressed"]
+[connection signal="pressed" from="PhotoUI/HBoxContainer/Reset" to="." method="_on_reset_pressed"]

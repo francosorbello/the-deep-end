@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=3 uid="uid://6dfaax6b46w2"]
+
+[ext_resource type="Texture2D" uid="uid://cneq0phgrphf1" path="res://assets/skybox/cubemap.png" id="1_5tgkr"]
+[ext_resource type="PackedScene" uid="uid://fimeq6fhmxo6" path="res://player/player.tscn" id="2_8ivh7"]
+[ext_resource type="PackedScene" uid="uid://bjkgawg84pykg" path="res://ui/game_ui.tscn" id="3_swbsb"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_aw77y"]
+panorama = ExtResource("1_5tgkr")
+
+[sub_resource type="Sky" id="Sky_161e1"]
+sky_material = SubResource("PanoramaSkyMaterial_aw77y")
+
+[sub_resource type="Environment" id="Environment_y0yi2"]
+background_mode = 2
+sky = SubResource("Sky_161e1")
+
+[node name="main" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_y0yi2")
+
+[node name="Player" parent="." node_paths=PackedStringArray("game_ui") instance=ExtResource("2_8ivh7")]
+game_ui = NodePath("../GameUI")
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+
+[node name="GameUI" parent="." instance=ExtResource("3_swbsb")]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.46132)

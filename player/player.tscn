@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=3 uid="uid://fimeq6fhmxo6"]
+
+[ext_resource type="Script" path="res://player/player.gd" id="1_6yiq7"]
+[ext_resource type="Script" path="res://player/player_camera.gd" id="1_qw5mp"]
+[ext_resource type="Script" path="res://addons/ftr_tools/sm/state_machine.gd" id="3_70qgj"]
+[ext_resource type="Script" path="res://player/states/move_state.gd" id="4_rlcd2"]
+[ext_resource type="Script" path="res://player/states/photo_state.gd" id="5_4jonh"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2vfut"]
+
+[node name="Player" type="CharacterBody3D"]
+motion_mode = 1
+script = ExtResource("1_6yiq7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_2vfut")
+
+[node name="PlayerCamera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.847249, 0)
+script = ExtResource("1_qw5mp")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_70qgj")
+initial_state = NodePath("MoveState")
+
+[node name="MoveState" type="Node" parent="StateMachine"]
+script = ExtResource("4_rlcd2")
+
+[node name="PhotoState" type="Node" parent="StateMachine"]
+script = ExtResource("5_4jonh")

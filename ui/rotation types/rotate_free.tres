@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="RotationTypeData" load_steps=3 format=3 uid="uid://bswk7b52cqono"]
+
+[ext_resource type="Texture2D" uid="uid://c66ge85v0rvdm" path="res://assets/icons/unlocked.png" id="1_n5q0w"]
+[ext_resource type="Script" path="res://ui/rotation_type_data.gd" id="1_n13rn"]
+
+[resource]
+script = ExtResource("1_n13rn")
+type = 3
+icon = ExtResource("1_n5q0w")
