@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbdpwl12v66l"]
+
+[ext_resource type="Script" path="res://expedition/ExpeditionManager.gd" id="1_bghes"]
+[ext_resource type="Resource" uid="uid://dxlq2fe2ikwx5" path="res://expedition/Expedition.tres" id="2_t7qhe"]
+
+[node name="ExpeditionManager" type="Node"]
+script = ExtResource("1_bghes")
+current_expedition = ExtResource("2_t7qhe")

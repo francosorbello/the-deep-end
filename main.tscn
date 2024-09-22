@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://6dfaax6b46w2"]
+[gd_scene load_steps=8 format=3 uid="uid://6dfaax6b46w2"]
 
 [ext_resource type="PackedScene" uid="uid://bpr7iidbnil28" path="res://player/rigid_player.tscn" id="1_06qhk"]
 [ext_resource type="Texture2D" uid="uid://cg4siv1tj7ay0" path="res://assets/panorama2.png" id="2_nyyny"]
 [ext_resource type="PackedScene" uid="uid://bjkgawg84pykg" path="res://ui/game_ui.tscn" id="3_swbsb"]
+[ext_resource type="PackedScene" uid="uid://gvcugplcwm5w" path="res://asteroid/asteroid.tscn" id="4_7iy54"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_aw77y"]
 panorama = ExtResource("2_nyyny")
@@ -31,3 +32,6 @@ environment = SubResource("Environment_y0yi2")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.858566, 0.512702, 0, -0.512702, 0.858566, 0, 4.91951, 0)
+
+[node name="asteroid" parent="." instance=ExtResource("4_7iy54")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.370348, 0, -9.61304)

@@ -8,6 +8,9 @@ signal on_change_rotation_type(type:RotationTypeData)
 func get_rotate_joystick() -> VirtualJoystick:
     return $MoveUI.get_node("RotateJoystick")
 
+func get_interact_button() -> Button:
+    return $MoveUI.get_node("InteractButton")
+
 
 func _on_global_event_button_pressed() -> void:
     $MoveUI.visible = false

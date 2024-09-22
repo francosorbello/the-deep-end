@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://gvcugplcwm5w"]
+
+[ext_resource type="ArrayMesh" uid="uid://csoyd2nej8xa3" path="res://assets/rocks/rock_c_01.obj" id="1_xwcgh"]
+[ext_resource type="Script" path="res://interactable/interactable.gd" id="2_ix5ep"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_vgeqq"]
+radius = 1.84989
+
+[node name="asteroid" type="Node3D"]
+
+[node name="RockC01" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_xwcgh")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_vgeqq")
+
+[node name="Interactable" type="Node" parent="."]
+script = ExtResource("2_ix5ep")

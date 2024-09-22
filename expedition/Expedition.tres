@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Expedition" load_steps=2 format=3 uid="uid://dxlq2fe2ikwx5"]
+
+[ext_resource type="Script" path="res://expedition/expedition.gd" id="1_sguuq"]
+
+[resource]
+script = ExtResource("1_sguuq")
+collected_fuel = 0.0
+collected_food = 0.0
+current_fuel = 0.0
