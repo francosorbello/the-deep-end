@@ -75,5 +75,3 @@ func reset():
 func stabilize():
     rotation.z = 0
 
-func set_rotation_type( typeData : RotationTypeData):
-    rotation_type = typeData.type

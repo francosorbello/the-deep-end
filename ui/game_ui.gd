@@ -3,7 +3,6 @@ class_name GameUI
 
 signal on_stabilize_camera
 signal on_reset_camera
-signal on_change_rotation_type(type:RotationTypeData)
 
 func get_rotate_joystick() -> VirtualJoystick:
     return $MoveUI.get_node("RotateJoystick")
@@ -30,9 +29,4 @@ func _on_stabilize_pressed() -> void:
 
 func _on_reset_pressed() -> void:
     on_reset_camera.emit()
-    pass # Replace with function body.
-
-
-func _on_camera_type_button_changed_rotation_type(type:RotationTypeData) -> void:
-    on_change_rotation_type.emit(type)
     pass # Replace with function body.

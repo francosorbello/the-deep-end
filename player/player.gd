@@ -39,10 +39,6 @@ func _on_global_event_button_pressed() -> void:
 func get_camera():
     return $PlayerCamera
 
-func handle_change_rotation_type(type : RotationTypeData) -> void:
-    print("change rotation type: ", type.type)
-    $PlayerCamera.set_rotation_type(type)
-    pass
 
 func handle_reset_camera():
     print("reset")

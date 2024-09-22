@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="RotationTypeData" load_steps=3 format=3 uid="uid://grh84ltc1u7j"]
-
-[ext_resource type="Script" path="res://ui/rotation_type_data.gd" id="1_1j4pf"]
-[ext_resource type="Texture2D" uid="uid://dy1apq7mj3ah6" path="res://assets/icons/scrollVertical.png" id="1_gcnlr"]
-
-[resource]
-script = ExtResource("1_1j4pf")
-type = 0
-icon = ExtResource("1_gcnlr")

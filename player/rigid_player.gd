@@ -21,11 +21,18 @@ func _process(_delta: float) -> void:
         
     if Input.is_action_pressed("stop"):
         apply_force(-linear_velocity * speed)
+    
+    if Input.is_action_just_released("interact"):
+        if current_interactable and current_interactable.can_interact():
+            current_interactable.interact(self)
+            current_interactable = null
 
     if rotate_joystick and rotate_joystick.is_pressed:
         $PlayerCamera.rotate_y(-Vector2.RIGHT.dot(rotate_joystick.output) * _delta)
 
 
 func _on_interact_area_area_entered(area:Area3D) -> void:
+    print(area, ",",area.get_parent())
     if area.get_parent().is_in_group("interactable"):
+        print("found interactable")
         current_interactable = area.get_parent()

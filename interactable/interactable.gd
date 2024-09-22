@@ -1,7 +1,7 @@
 extends Node
 class_name Interactable
 func _ready() -> void:
-    add_to_group("interactable")
+    get_parent().add_to_group("interactable")
 
     if not get_parent().has_method("interact"):
         printerr(get_parent().name +" node must have an 'interact' method.")
