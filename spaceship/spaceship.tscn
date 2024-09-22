@@ -1,0 +1,36 @@
+[gd_scene load_steps=10 format=3 uid="uid://6g7xidwaj7c2"]
+
+[ext_resource type="Script" path="res://spaceship/spaceship.gd" id="1_2wel5"]
+[ext_resource type="ArrayMesh" uid="uid://b12dmyg274vnr" path="res://assets/space ship/model.obj" id="1_aj3re"]
+[ext_resource type="Resource" uid="uid://dxlq2fe2ikwx5" path="res://expedition/Expedition.tres" id="2_aqvij"]
+[ext_resource type="Texture2D" uid="uid://gmryjtgaxx4w" path="res://assets/space ship/textures/albedo.png" id="3_3bwag"]
+[ext_resource type="Texture2D" uid="uid://cxu7vi7evqv2u" path="res://assets/space ship/textures/metalness.png" id="4_qvjy2"]
+[ext_resource type="Script" path="res://interactable/interactable.gd" id="5_65cpo"]
+[ext_resource type="Texture2D" uid="uid://c7qd3fy1tuvur" path="res://assets/space ship/textures/normal.png" id="5_iuinr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dveae"]
+albedo_texture = ExtResource("3_3bwag")
+metallic = 1.0
+metallic_texture = ExtResource("4_qvjy2")
+normal_enabled = true
+normal_texture = ExtResource("5_iuinr")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_alk64"]
+radius = 2.22415
+
+[node name="spaceship" type="Node3D"]
+script = ExtResource("1_2wel5")
+current_expedition = ExtResource("2_aqvij")
+
+[node name="Model" type="MeshInstance3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.741715, 0, 0)
+material_override = SubResource("StandardMaterial3D_dveae")
+mesh = ExtResource("1_aj3re")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_alk64")
+
+[node name="Interactable" type="Node" parent="."]
+script = ExtResource("5_65cpo")
