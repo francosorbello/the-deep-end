@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://bpr7iidbnil28"]
+
+[ext_resource type="Script" path="res://player/rigid_player.gd" id="1_ytnmq"]
+[ext_resource type="Script" path="res://player/player_camera.gd" id="2_i1rhi"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_evud0"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_t1lve"]
+radius = 3.74543
+
+[node name="RigidPlayer" type="RigidBody3D"]
+script = ExtResource("1_ytnmq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_evud0")
+
+[node name="PlayerCamera" type="Camera3D" parent="."]
+script = ExtResource("2_i1rhi")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_t1lve")

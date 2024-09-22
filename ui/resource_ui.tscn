@@ -1,0 +1,88 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvhm4flqxhlho"]
+
+[ext_resource type="Script" path="res://ui/resource_ui.gd" id="1_2ghv3"]
+
+[node name="ResourceUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2ghv3")
+
+[node name="Container" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.8
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="CollectedLabel" type="RichTextLabel" parent="Container"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[color=lightblue]COLLECTED[/color]"
+fit_content = true
+
+[node name="Fuel" type="HBoxContainer" parent="Container"]
+layout_mode = 2
+
+[node name="Label" type="RichTextLabel" parent="Container/Fuel"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 40
+text = "Fuel:"
+fit_content = true
+
+[node name="Value" type="RichTextLabel" parent="Container/Fuel"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 40
+fit_content = true
+
+[node name="Food" type="HBoxContainer" parent="Container"]
+layout_mode = 2
+
+[node name="Label" type="RichTextLabel" parent="Container/Food"]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 40
+text = "Food:"
+fit_content = true
+
+[node name="Value" type="RichTextLabel" parent="Container/Food"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 40
+fit_content = true
+
+[node name="HSeparator" type="HSeparator" parent="Container"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="CurrentLabel" type="RichTextLabel" parent="Container"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[color=lightblue]CURRENT[/color]"
+fit_content = true
+
+[node name="CurrentFuel" type="HBoxContainer" parent="Container"]
+layout_mode = 2
+
+[node name="Label" type="RichTextLabel" parent="Container/CurrentFuel"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 40
+text = "Fuel:"
+fit_content = true
+
+[node name="Value" type="RichTextLabel" parent="Container/CurrentFuel"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 40
+fit_content = true
