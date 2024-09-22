@@ -44,6 +44,7 @@ fit_content = true
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 40
+text = "0"
 fit_content = true
 
 [node name="Food" type="HBoxContainer" parent="Container"]
@@ -60,6 +61,7 @@ fit_content = true
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 40
+text = "0"
 fit_content = true
 
 [node name="HSeparator" type="HSeparator" parent="Container"]
@@ -87,4 +89,6 @@ fit_content = true
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 40
+text = "0
+"
 fit_content = true
