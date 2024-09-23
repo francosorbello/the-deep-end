@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://bn172bqytai50"]
+
+[ext_resource type="Script" path="res://procedural-generator/procedural_generator.gd" id="1_e8ncj"]
+[ext_resource type="PackedScene" uid="uid://gvcugplcwm5w" path="res://asteroid/asteroid.tscn" id="2_nwthr"]
+[ext_resource type="PackedScene" uid="uid://6g7xidwaj7c2" path="res://spaceship/spaceship.tscn" id="3_ubaaa"]
+
+[node name="ProceduralGenerator" type="Node3D"]
+script = ExtResource("1_e8ncj")
+objects_to_spawn = Array[PackedScene]([ExtResource("3_ubaaa"), ExtResource("2_nwthr")])
+initial_ring_radius = 30.0
+ring_radius_increment = 30.0

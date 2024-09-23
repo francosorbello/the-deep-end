@@ -14,8 +14,10 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
     move_vector = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
     var direction = ($PlayerCamera.transform.basis * Vector3(move_vector.x, 0, move_vector.y)).normalized()
+    var camera_foward = $PlayerCamera.get_global_transform().basis.z
     if direction:
-        apply_force(Vector3(direction.x, 0, direction.z) * 5)
+        # apply_force(Vector3(direction.x, 0, direction.z) * 5)
+        apply_force(camera_foward * direction.z * speed)
         
     if Input.is_action_pressed("stop"):
         apply_force(-linear_velocity * speed)
@@ -28,10 +30,10 @@ func _process(_delta: float) -> void:
     if Input.is_action_just_released("reset"):
         $PlayerCamera.reset()
         $PlayerCamera.stabilize()
+    $Debugger.log(str(global_position))
 
 
 func _on_interact_area_area_entered(area:Area3D) -> void:
-    print(area, ",",area.get_parent())
     if area.get_parent().is_in_group("interactable"):
         print("found interactable")
         current_interactable = area.get_parent()

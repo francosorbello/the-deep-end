@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bpr7iidbnil28"]
+[gd_scene load_steps=6 format=3 uid="uid://bpr7iidbnil28"]
 
 [ext_resource type="Script" path="res://player/rigid_player.gd" id="1_ytnmq"]
+[ext_resource type="PackedScene" uid="uid://b6x2pt6fhjhqg" path="res://utils/debugger.tscn" id="2_epamv"]
 [ext_resource type="Script" path="res://player/player_camera.gd" id="2_i1rhi"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_evud0"]
@@ -10,6 +11,8 @@ radius = 3.74543
 
 [node name="RigidPlayer" type="RigidBody3D"]
 script = ExtResource("1_ytnmq")
+
+[node name="Debugger" parent="." instance=ExtResource("2_epamv")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_evud0")
