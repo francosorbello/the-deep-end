@@ -37,3 +37,10 @@ func _on_interact_area_area_entered(area:Area3D) -> void:
     if area.get_parent().is_in_group("interactable"):
         print("found interactable")
         current_interactable = area.get_parent()
+        current_interactable.enable_highlight()
+
+func _on_interact_area_area_exited(area:Area3D) -> void:
+    if current_interactable:
+        current_interactable = null
+        area.get_parent().disable_highlight()
+    pass # Replace with function body.

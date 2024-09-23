@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://6dfaax6b46w2"]
+[gd_scene load_steps=9 format=3 uid="uid://6dfaax6b46w2"]
 
 [ext_resource type="PackedScene" uid="uid://bpr7iidbnil28" path="res://player/rigid_player.tscn" id="1_06qhk"]
 [ext_resource type="Texture2D" uid="uid://cg4siv1tj7ay0" path="res://assets/panorama2.png" id="2_nyyny"]
 [ext_resource type="PackedScene" uid="uid://bjkgawg84pykg" path="res://ui/game_ui.tscn" id="3_swbsb"]
 [ext_resource type="PackedScene" uid="uid://bn172bqytai50" path="res://procedural-generator/procedural_generator.tscn" id="4_lps03"]
+[ext_resource type="PackedScene" uid="uid://6g7xidwaj7c2" path="res://spaceship/spaceship.tscn" id="5_78elt"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_aw77y"]
 panorama = ExtResource("2_nyyny")
@@ -34,3 +35,6 @@ environment = SubResource("Environment_y0yi2")
 transform = Transform3D(1, 0, 0, 0, 0.858566, 0.512702, 0, -0.512702, 0.858566, 0, 4.91951, 0)
 
 [node name="ProceduralGenerator" parent="." instance=ExtResource("4_lps03")]
+
+[node name="spaceship" parent="." instance=ExtResource("5_78elt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0768433, 0, -11.0142)
