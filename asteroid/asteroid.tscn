@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://gvcugplcwm5w"]
+[gd_scene load_steps=8 format=3 uid="uid://gvcugplcwm5w"]
 
 [ext_resource type="Script" path="res://asteroid/asteroid.gd" id="1_bmmgo"]
 [ext_resource type="ArrayMesh" uid="uid://csoyd2nej8xa3" path="res://assets/rocks/rock_c_01.obj" id="1_xwcgh"]
 [ext_resource type="Script" path="res://interactable/interactable.gd" id="2_ix5ep"]
 [ext_resource type="Resource" uid="uid://dxlq2fe2ikwx5" path="res://expedition/Expedition.tres" id="2_ya8ec"]
+[ext_resource type="PackedScene" uid="uid://whd25dheuctk" path="res://interactable/interactable_pointer_notifier.tscn" id="5_0jtyu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k5yaq"]
 
@@ -25,3 +26,5 @@ shape = SubResource("SphereShape3D_vgeqq")
 
 [node name="Interactable" type="Node" parent="."]
 script = ExtResource("2_ix5ep")
+
+[node name="InteractablePointerNotifier" parent="." instance=ExtResource("5_0jtyu")]

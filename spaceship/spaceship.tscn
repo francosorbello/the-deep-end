@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cxu7vi7evqv2u" path="res://assets/space ship/textures/metalness.png" id="4_qvjy2"]
 [ext_resource type="Script" path="res://interactable/interactable.gd" id="5_65cpo"]
 [ext_resource type="Texture2D" uid="uid://c7qd3fy1tuvur" path="res://assets/space ship/textures/normal.png" id="5_iuinr"]
-[ext_resource type="PackedScene" uid="uid://bb007p2gcnomc" path="res://interactable/interactable_pointer.tscn" id="7_vfs0d"]
+[ext_resource type="PackedScene" uid="uid://whd25dheuctk" path="res://interactable/interactable_pointer_notifier.tscn" id="9_13eb4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dveae"]
 albedo_texture = ExtResource("3_3bwag")
@@ -28,8 +28,6 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.741715, 0, 0)
 material_override = SubResource("StandardMaterial3D_dveae")
 mesh = ExtResource("1_aj3re")
 
-[node name="InteractablePointer" parent="." instance=ExtResource("7_vfs0d")]
-
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
@@ -37,3 +35,6 @@ shape = SubResource("SphereShape3D_alk64")
 
 [node name="Interactable" type="Node" parent="."]
 script = ExtResource("5_65cpo")
+
+[node name="InteractablePointerNotifier" parent="." instance=ExtResource("9_13eb4")]
+aabb = AABB(-1.24307, -1, -1, 2.48614, 2, 2)

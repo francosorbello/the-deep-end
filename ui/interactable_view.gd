@@ -18,3 +18,5 @@ func _draw() -> void:
             draw_line($DrawFrom.global_position,iPos,Color.WHITE)
             $Distance.text = "%s m" % str(int(player.global_position.distance_to(interactable.global_position)))
             $Distance.position = iPos
+        else:
+            $Distance.text = ""
