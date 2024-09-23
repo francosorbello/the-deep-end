@@ -30,7 +30,6 @@ func _process(_delta: float) -> void:
     if Input.is_action_just_released("reset"):
         $PlayerCamera.reset()
         $PlayerCamera.stabilize()
-    $Debugger.log(str(global_position))
 
 
 func _on_interact_area_area_entered(area:Area3D) -> void:

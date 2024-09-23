@@ -25,5 +25,8 @@ script = ExtResource("2_i1rhi")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractArea"]
 shape = SubResource("SphereShape3D_t1lve")
 
+[node name="LinePoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.666208, 0.612812)
+
 [connection signal="area_entered" from="InteractArea" to="." method="_on_interact_area_area_entered"]
 [connection signal="area_exited" from="InteractArea" to="." method="_on_interact_area_area_exited"]

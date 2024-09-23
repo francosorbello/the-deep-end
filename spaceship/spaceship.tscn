@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://6g7xidwaj7c2"]
+[gd_scene load_steps=11 format=3 uid="uid://6g7xidwaj7c2"]
 
 [ext_resource type="Script" path="res://spaceship/spaceship.gd" id="1_2wel5"]
 [ext_resource type="ArrayMesh" uid="uid://b12dmyg274vnr" path="res://assets/space ship/model.obj" id="1_aj3re"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cxu7vi7evqv2u" path="res://assets/space ship/textures/metalness.png" id="4_qvjy2"]
 [ext_resource type="Script" path="res://interactable/interactable.gd" id="5_65cpo"]
 [ext_resource type="Texture2D" uid="uid://c7qd3fy1tuvur" path="res://assets/space ship/textures/normal.png" id="5_iuinr"]
+[ext_resource type="PackedScene" uid="uid://bb007p2gcnomc" path="res://interactable/interactable_pointer.tscn" id="7_vfs0d"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dveae"]
 albedo_texture = ExtResource("3_3bwag")
@@ -26,6 +27,8 @@ current_expedition = ExtResource("2_aqvij")
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.741715, 0, 0)
 material_override = SubResource("StandardMaterial3D_dveae")
 mesh = ExtResource("1_aj3re")
+
+[node name="InteractablePointer" parent="." instance=ExtResource("7_vfs0d")]
 
 [node name="Area3D" type="Area3D" parent="."]
 

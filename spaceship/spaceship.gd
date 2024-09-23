@@ -8,7 +8,8 @@ var already_interacted = false
 
 func _ready():
     # randomize rotation
-    $Model.rotate(Vector3(0, 1, 0), randf() * 2 * PI)
+    # $Model.rotate(Vector3(0, 1, 0), randf() * 2 * PI)
+    pass
 
 func can_interact():
     return not already_interacted

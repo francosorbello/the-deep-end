@@ -18,6 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 GlobalEventSystem="*res://addons/ftr_tools/global_event_system/global_event_system.gd"
+Draw3D="*res://utils/Draw3D.gd"
+InteractableManager="*res://interactable/interactable_manager.tscn"
 
 [display]
 

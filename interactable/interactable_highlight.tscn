@@ -3,9 +3,17 @@
 [ext_resource type="Script" path="res://interactable/interactable_highlight.gd" id="1_cwt6u"]
 [ext_resource type="ArrayMesh" uid="uid://b12dmyg274vnr" path="res://assets/space ship/model.obj" id="2_6xfdb"]
 
-[node name="InteractableHighlight" type="Node3D" node_paths=PackedStringArray("model")]
+[node name="InteractableHighlight" type="Control" node_paths=PackedStringArray("model")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_cwt6u")
 model = NodePath("Model")
+
+[node name="Node3D" type="Node3D" parent="."]
 
 [node name="Model" type="MeshInstance3D" parent="."]
 mesh = ExtResource("2_6xfdb")

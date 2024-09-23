@@ -1,9 +1,7 @@
-extends Node3D
+extends Control
 
 @export var model : MeshInstance3D
 
-func enable_highlight():
-    model.material_override.albedo_color = Color(1, 1, 0, 1)
-
-func _draw():
-    pass
+func _process(delta: float) -> void:
+    var aabb = model.get_aabb()
+    print(aabb)
