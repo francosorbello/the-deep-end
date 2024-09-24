@@ -9,6 +9,7 @@ extends Node
 var starting_fuel : float
 func _ready() -> void:
     starting_fuel = expedition_data.collected_fuel
+    GlobalEventSystem.suscribe(self,"handle_expedition_end")
     start_ship()
 
 func clear_children():
@@ -33,4 +34,9 @@ func handle_start_expedition():
 
 func handle_fuel_usage_changed(value : float):
     expedition_data.set_current_fuel(value)
+    pass
+
+func handle_expedition_end(event : GlobalEventSystem.GameEvent, data : Dictionary):
+    if event == GlobalEventSystem.GameEvent.GE_EXPEDITIONENDED:
+        start_ship()
     pass

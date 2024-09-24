@@ -5,6 +5,7 @@ extends Control
 func _ready() -> void:
     $ExpeditionFuelSlider.max_value = expedition_data.collected_fuel
     $ExpeditionFuelSlider/MaxLabel.text = str(expedition_data.collected_fuel)
+    _on_expedition_fuel_slider_value_changed(0)
 
 func _on_expedition_fuel_slider_value_changed(value:float) -> void:
     $FuelLabel.text = "Fuel: "+str(value)

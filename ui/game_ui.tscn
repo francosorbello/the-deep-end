@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bvhm4flqxhlho" path="res://ui/resource_ui.tscn" id="2_2jvwp"]
 [ext_resource type="PackedScene" uid="uid://bgrtyh0yobx4r" path="res://ui/action_button/action_button.tscn" id="4_53yts"]
 [ext_resource type="Texture2D" uid="uid://cpti3c1q6nhpc" path="res://assets/icons/target.png" id="5_mrd80"]
-[ext_resource type="Texture2D" uid="uid://cn2jc1ujaotbb" path="res://assets/icons/focus.png" id="7_87gkt"]
+[ext_resource type="Texture2D" uid="uid://1sl7mt744kjy" path="res://assets/zoom-lens.png" id="6_gnlob"]
 [ext_resource type="Texture2D" uid="uid://wdapdqywfgx8" path="res://assets/icons/return.png" id="8_60xls"]
 
 [node name="GameUI" type="Control"]
@@ -63,8 +63,10 @@ action_type = 0
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 size_flags_horizontal = 6
-icon = ExtResource("7_87gkt")
+disabled = true
+icon = ExtResource("6_gnlob")
 flat = true
+expand_icon = true
 
 [node name="MoveJoystick" parent="MoveUI/HBoxContainer" instance=ExtResource("1_1ceqg")]
 custom_minimum_size = Vector2(200, 200)

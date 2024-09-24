@@ -30,3 +30,6 @@ func _on_stabilize_pressed() -> void:
 func _on_reset_pressed() -> void:
     on_reset_camera.emit()
     pass # Replace with function body.
+
+func toggle_interact_button(value : bool):
+    $MoveUI/HBoxContainer/InteractButton.disabled = !value

@@ -5,7 +5,8 @@ enum GameEvent
     GE_DEFAULT,
     GE_PHOTO_MODE,
     GE_MOVE_MODE,
-    GE_SET_ROTATION_TYPE
+    GE_SET_ROTATION_TYPE,
+    GE_EXPEDITIONENDED
 }
 
 class GESuscriber:

@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://6dfaax6b46w2"]
+[gd_scene load_steps=13 format=3 uid="uid://6dfaax6b46w2"]
 
 [ext_resource type="PackedScene" uid="uid://bpr7iidbnil28" path="res://player/rigid_player.tscn" id="1_06qhk"]
 [ext_resource type="Script" path="res://main.gd" id="1_mmw1g"]
+[ext_resource type="Resource" uid="uid://dxlq2fe2ikwx5" path="res://expedition/Expedition.tres" id="2_3xgqf"]
 [ext_resource type="Texture2D" uid="uid://cg4siv1tj7ay0" path="res://assets/panorama2.png" id="2_nyyny"]
 [ext_resource type="PackedScene" uid="uid://bjkgawg84pykg" path="res://ui/game_ui.tscn" id="3_swbsb"]
 [ext_resource type="PackedScene" uid="uid://bn172bqytai50" path="res://procedural-generator/procedural_generator.tscn" id="4_lps03"]
@@ -25,6 +26,7 @@ script = ExtResource("1_mmw1g")
 [node name="RigidPlayer" parent="." node_paths=PackedStringArray("game_ui") instance=ExtResource("1_06qhk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.509233, -1.42704)
 game_ui = NodePath("../GameUI")
+current_expedition = ExtResource("2_3xgqf")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="RigidPlayer"]
 spot_range = 7.39707
@@ -44,6 +46,6 @@ transform = Transform3D(1, 0, 0, 0, 0.858566, 0.512702, 0, -0.512702, 0.858566, 
 [node name="ProceduralGenerator" parent="." instance=ExtResource("4_lps03")]
 
 [node name="PlayerSpaceship" parent="." instance=ExtResource("6_cu0qy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.625579, -2.38419e-07, 21.6679)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.625579, -2.38419e-07, -21.3556)
 
 [node name="FuelConsumeManager" parent="." instance=ExtResource("8_xuoru")]

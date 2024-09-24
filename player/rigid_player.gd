@@ -5,7 +5,6 @@ var move_vector
 @export var game_ui : GameUI
 @export var current_expedition : Expedition
 
-
 var current_interactable
 
 func _ready() -> void:
@@ -37,9 +36,11 @@ func _on_interact_area_area_entered(area:Area3D) -> void:
         print("found interactable")
         current_interactable = area.get_parent()
         current_interactable.enable_highlight()
+        game_ui.toggle_interact_button(true)
 
 func _on_interact_area_area_exited(area:Area3D) -> void:
     if current_interactable:
         current_interactable = null
         area.get_parent().disable_highlight()
+        game_ui.toggle_interact_button(false)
     pass # Replace with function body.
