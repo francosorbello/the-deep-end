@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_sguuq")
-collected_fuel = 0.0
-collected_food = 0.0
+collected_fuel = 50.0
+collected_food = 100.0
 current_fuel = 0.0

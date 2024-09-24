@@ -1,0 +1,249 @@
+[gd_scene load_steps=16 format=3 uid="uid://bjisqow83cxx4"]
+
+[ext_resource type="Script" path="res://ui/ship_ui.gd" id="1_eppyt"]
+[ext_resource type="Texture2D" uid="uid://v021u0m27o23" path="res://assets/ui/button_square_header_small_square_screws.png" id="1_pr7h2"]
+[ext_resource type="Script" path="res://ui/resources_container.gd" id="2_mwxjj"]
+[ext_resource type="Texture2D" uid="uid://b6vb0gyxyxahg" path="res://assets/ui/bar_square_gloss_large.png" id="3_juohf"]
+[ext_resource type="Script" path="res://ui/expedition_container.gd" id="3_oajb6"]
+[ext_resource type="Resource" uid="uid://dxlq2fe2ikwx5" path="res://expedition/Expedition.tres" id="4_ngbnv"]
+[ext_resource type="Texture2D" uid="uid://dyf2hn1olma4u" path="res://assets/ui/bar_square_gloss_large_square.png" id="4_qh5ij"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1svi7"]
+font_size = 100
+font_color = Color(0.109804, 0.623529, 0.843137, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_t5hxt"]
+font_size = 50
+font_color = Color(0.366595, 0.366595, 0.366595, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ygrqk"]
+font_size = 40
+font_color = Color(0.364706, 0.364706, 0.364706, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5ipk7"]
+texture = ExtResource("3_juohf")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3geye"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+texture = ExtResource("3_juohf")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+expand_margin_right = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hkisu"]
+content_margin_left = 30.0
+content_margin_top = 30.0
+content_margin_right = 30.0
+content_margin_bottom = 30.0
+bg_color = Color(0.226707, 0.226708, 0.226707, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+anti_aliasing = false
+
+[sub_resource type="Theme" id="Theme_qmqn1"]
+HSlider/constants/center_grabber = 1
+HSlider/styles/grabber_area = SubResource("StyleBoxTexture_5ipk7")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_3geye")
+HSlider/styles/slider = SubResource("StyleBoxFlat_hkisu")
+
+[sub_resource type="LabelSettings" id="LabelSettings_vai5y"]
+font_size = 30
+font_color = Color(0.366595, 0.366595, 0.366595, 1)
+
+[node name="ShipUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eppyt")
+
+[node name="ResourcesContainer" type="Control" parent="."]
+layout_mode = 1
+anchor_right = 1.0
+anchor_bottom = 0.4
+grow_horizontal = 2
+script = ExtResource("2_mwxjj")
+expedition_data = ExtResource("4_ngbnv")
+
+[node name="BG" type="NinePatchRect" parent="ResourcesContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_pr7h2")
+patch_margin_left = 36
+patch_margin_top = 36
+patch_margin_right = 36
+patch_margin_bottom = 36
+
+[node name="Data" type="VBoxContainer" parent="ResourcesContainer/BG"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.01
+anchor_top = 0.01
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.2
+offset_top = 26.32
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="ResourcesLabel" type="Label" parent="ResourcesContainer/BG/Data"]
+layout_mode = 2
+text = "Resources"
+label_settings = SubResource("LabelSettings_1svi7")
+
+[node name="FuelLabel" type="Label" parent="ResourcesContainer/BG/Data"]
+layout_mode = 2
+text = "Fuel:"
+label_settings = SubResource("LabelSettings_t5hxt")
+
+[node name="FuelAmount" type="Label" parent="ResourcesContainer/BG/Data"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_ygrqk")
+
+[node name="FoodLabel" type="Label" parent="ResourcesContainer/BG/Data"]
+layout_mode = 2
+text = "Food:"
+label_settings = SubResource("LabelSettings_t5hxt")
+
+[node name="FoodAmount" type="Label" parent="ResourcesContainer/BG/Data"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_ygrqk")
+
+[node name="ExpeditionContainer" type="Control" parent="."]
+layout_mode = 1
+anchor_top = 0.4
+anchor_right = 1.0
+anchor_bottom = 0.8
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_oajb6")
+expedition_data = ExtResource("4_ngbnv")
+
+[node name="BG" type="NinePatchRect" parent="ExpeditionContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_pr7h2")
+patch_margin_left = 36
+patch_margin_top = 36
+patch_margin_right = 36
+patch_margin_bottom = 36
+
+[node name="ResourcesLabel" type="Label" parent="ExpeditionContainer"]
+layout_mode = 1
+offset_left = 13.0
+offset_top = 47.0
+offset_right = 784.0
+offset_bottom = 184.0
+text = "Next expedition"
+label_settings = SubResource("LabelSettings_1svi7")
+
+[node name="FoodLabel" type="Label" parent="ExpeditionContainer"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 53.0
+offset_top = -71.0
+offset_right = 168.0
+offset_bottom = -2.0
+grow_vertical = 2
+text = "Fuel:"
+label_settings = SubResource("LabelSettings_t5hxt")
+
+[node name="ExpeditionFuelSlider" type="HSlider" parent="ExpeditionContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.5
+anchor_right = 0.95
+anchor_bottom = 0.579
+offset_top = 10.0
+offset_bottom = 10.0
+grow_vertical = 2
+theme = SubResource("Theme_qmqn1")
+
+[node name="MinLabel" type="Label" parent="ExpeditionContainer/ExpeditionFuelSlider"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -2.672
+offset_right = 115.0
+offset_bottom = 66.328
+grow_vertical = 0
+text = "0
+"
+label_settings = SubResource("LabelSettings_vai5y")
+
+[node name="MaxLabel" type="Label" parent="ExpeditionContainer/ExpeditionFuelSlider"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -46.0
+offset_top = 0.328003
+offset_right = 69.0
+offset_bottom = 69.328
+grow_horizontal = 0
+grow_vertical = 0
+text = "1000"
+label_settings = SubResource("LabelSettings_vai5y")
+
+[node name="ButtonContainer" type="Control" parent="."]
+layout_mode = 1
+anchor_top = 0.8
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="ButtonContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_qh5ij")
+patch_margin_left = 36
+patch_margin_top = 36
+patch_margin_right = 36
+patch_margin_bottom = 36
+
+[node name="Button" type="Button" parent="ButtonContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 100
+text = "Start expedition"
+flat = true
+
+[connection signal="pressed" from="ButtonContainer/Button" to="." method="_on_button_pressed"]

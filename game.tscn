@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://btqyej7wvs66w"]
+
+[ext_resource type="Script" path="res://game.gd" id="1_qhm5m"]
+[ext_resource type="PackedScene" uid="uid://bjisqow83cxx4" path="res://ui/ship_ui.tscn" id="2_qoove"]
+[ext_resource type="PackedScene" uid="uid://6dfaax6b46w2" path="res://main.tscn" id="3_sy4ap"]
+
+[node name="Game" type="Node"]
+script = ExtResource("1_qhm5m")
+ship_scene = ExtResource("2_qoove")
+main_scene = ExtResource("3_sy4ap")
