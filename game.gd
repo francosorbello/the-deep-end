@@ -1,9 +1,14 @@
 extends Node
 
+@export var expedition_data : Expedition
+
+@export_category("Scenes")
 @export var ship_scene : PackedScene
 @export var main_scene : PackedScene
 
+var starting_fuel : float
 func _ready() -> void:
+    starting_fuel = expedition_data.collected_fuel
     start_ship()
 
 func clear_children():
@@ -15,6 +20,7 @@ func start_ship():
     var ship = ship_scene.instantiate()
     add_child(ship)
     ship.start_expedition.connect(handle_start_expedition)
+    ship.fuel_usage_changed.connect(handle_fuel_usage_changed)
 
 func start_main():
     clear_children()
@@ -23,4 +29,8 @@ func start_main():
 
 func handle_start_expedition():
     start_main()
+    pass
+
+func handle_fuel_usage_changed(value : float):
+    expedition_data.set_current_fuel(value)
     pass
