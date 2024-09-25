@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://6g7xidwaj7c2"]
+[gd_scene load_steps=12 format=3 uid="uid://6g7xidwaj7c2"]
 
 [ext_resource type="Script" path="res://spaceship/spaceship.gd" id="1_2wel5"]
 [ext_resource type="ArrayMesh" uid="uid://b12dmyg274vnr" path="res://assets/space ship/model.obj" id="1_aj3re"]
@@ -19,6 +19,9 @@ normal_texture = ExtResource("5_iuinr")
 [sub_resource type="SphereShape3D" id="SphereShape3D_alk64"]
 radius = 2.22415
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_dkv1e"]
+size = Vector3(2.39313, 1.50879, 0.872314)
+
 [node name="spaceship" type="Node3D"]
 script = ExtResource("1_2wel5")
 current_expedition = ExtResource("2_aqvij")
@@ -38,3 +41,11 @@ script = ExtResource("5_65cpo")
 
 [node name="InteractablePointerNotifier" parent="." instance=ExtResource("9_13eb4")]
 aabb = AABB(-1.24307, -1, -1, 2.48614, 2, 2)
+
+[node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.304535, 0.254395, 0.165894)
+shape = SubResource("BoxShape3D_dkv1e")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://8kpqcxpls8fq"]
+[gd_scene load_steps=13 format=4 uid="uid://8kpqcxpls8fq"]
 
 [ext_resource type="Script" path="res://player_spaceship/player_spaceship.gd" id="1_qturl"]
 [ext_resource type="PackedScene" uid="uid://whd25dheuctk" path="res://interactable/interactable_pointer_notifier.tscn" id="2_x05js"]
@@ -160,6 +160,9 @@ shadow_mesh = SubResource("ArrayMesh_tdo4u")
 [sub_resource type="SphereShape3D" id="SphereShape3D_5k5n3"]
 radius = 8.88225
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_kem3v"]
+size = Vector3(9.09027, 3.69348, 2.94012)
+
 [node name="PlayerSpaceship" type="Node3D"]
 script = ExtResource("1_qturl")
 
@@ -179,3 +182,12 @@ shape = SubResource("SphereShape3D_5k5n3")
 
 [node name="Interactable" type="Node" parent="."]
 script = ExtResource("3_5lm3n")
+
+[node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
+aabb = AABB(-7.91051, -4.27273, -7.90207, 15.821, 8.54545, 15.8041)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.04514, 1.34674, 0.970062)
+shape = SubResource("BoxShape3D_kem3v")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://gvcugplcwm5w"]
+[gd_scene load_steps=9 format=3 uid="uid://gvcugplcwm5w"]
 
 [ext_resource type="Script" path="res://asteroid/asteroid.gd" id="1_bmmgo"]
 [ext_resource type="ArrayMesh" uid="uid://csoyd2nej8xa3" path="res://assets/rocks/rock_c_01.obj" id="1_xwcgh"]
@@ -10,6 +10,9 @@
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_vgeqq"]
 radius = 1.84989
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n7x54"]
+size = Vector3(1.66162, 1.70886, 1.75281)
 
 [node name="asteroid" type="Node3D"]
 script = ExtResource("1_bmmgo")
@@ -28,3 +31,11 @@ shape = SubResource("SphereShape3D_vgeqq")
 script = ExtResource("2_ix5ep")
 
 [node name="InteractablePointerNotifier" parent="." instance=ExtResource("5_0jtyu")]
+
+[node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.330811, 0.354431, 0.376404)
+shape = SubResource("BoxShape3D_n7x54")

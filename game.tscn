@@ -1,12 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://btqyej7wvs66w"]
+[gd_scene load_steps=6 format=3 uid="uid://btqyej7wvs66w"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_qhm5m"]
 [ext_resource type="PackedScene" uid="uid://bjisqow83cxx4" path="res://ui/ship_ui.tscn" id="2_qoove"]
 [ext_resource type="Resource" uid="uid://dxlq2fe2ikwx5" path="res://expedition/Expedition.tres" id="2_xnc1d"]
 [ext_resource type="PackedScene" uid="uid://6dfaax6b46w2" path="res://main.tscn" id="3_sy4ap"]
+[ext_resource type="PackedScene" uid="uid://d1x7v8r65ng1o" path="res://ui/load_transition.tscn" id="5_1qoot"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_qhm5m")
 expedition_data = ExtResource("2_xnc1d")
 ship_scene = ExtResource("2_qoove")
 main_scene = ExtResource("3_sy4ap")
+
+[node name="CurrentLevel" type="Node" parent="."]
+
+[node name="LoadTransition" parent="." instance=ExtResource("5_1qoot")]

@@ -40,7 +40,8 @@ func _process(delta: float) -> void:
             if abs(gyro.x) > dead_zone || abs(gyro.y) > dead_zone:
                 rotate_x(gyro.x * delta)
                 rotate_y(gyro.y * delta)
-                rotation.z = 0
+                rotate_z(gyro.z * delta)
+                # rotation.z = 0
         _:
             return
 

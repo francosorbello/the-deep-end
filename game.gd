@@ -7,26 +7,33 @@ extends Node
 @export var main_scene : PackedScene
 
 var starting_fuel : float
+var loading : bool = false
 func _ready() -> void:
     starting_fuel = expedition_data.collected_fuel
     GlobalEventSystem.suscribe(self,"handle_expedition_end")
     start_ship()
 
 func clear_children():
-    for child in get_children():
+    for child in $CurrentLevel.get_children():
         child.queue_free()
 
 func start_ship():
+    await $LoadTransition.fade_in().finished
     clear_children()
+
     var ship = ship_scene.instantiate()
-    add_child(ship)
+    $CurrentLevel.add_child(ship)
     ship.start_expedition.connect(handle_start_expedition)
     ship.fuel_usage_changed.connect(handle_fuel_usage_changed)
+    await $LoadTransition.fade_out().finished
 
 func start_main():
+    await $LoadTransition.fade_in().finished
     clear_children()
     var main = main_scene.instantiate()
-    add_child(main)
+    $CurrentLevel.add_child(main)
+    $LoadTransition.fade_in()
+    await $LoadTransition.fade_out().finished
 
 func handle_start_expedition():
     start_main()

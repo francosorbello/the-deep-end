@@ -48,5 +48,6 @@ func create_ring():
         var random_radius = randf_range(current_radius, current_radius + ring_radius_increment)
         var x_pos = cos(deg_to_rad(i * angle_increment)) * random_radius
         var z_pos = sin(deg_to_rad(i * angle_increment)) * random_radius
-        var y_pos = randf_range(-30, 30)
+        # var y_pos = randf_range(-30, 30)
+        var y_pos = 0
         instance.global_position = Vector3(x_pos, y_pos, z_pos)

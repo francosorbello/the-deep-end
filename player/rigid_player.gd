@@ -13,10 +13,10 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
     move_vector = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
     var direction = ($PlayerCamera.transform.basis * Vector3(move_vector.x, 0, move_vector.y)).normalized()
-    var camera_foward = $PlayerCamera.get_global_transform().basis.z
+    # var camera_foward = $PlayerCamera.get_global_transform().basis.z
     if direction:
-        # apply_force(Vector3(direction.x, 0, direction.z) * 5)
-        apply_force(camera_foward * direction.z * speed)
+        apply_force(Vector3(direction.x, 0, direction.z) * 5)
+        # apply_force(camera_foward * direction.z * speed)
         
     if Input.is_action_pressed("stop"):
         apply_force(-linear_velocity * speed)
@@ -27,7 +27,7 @@ func _process(_delta: float) -> void:
             current_interactable = null
 
     if Input.is_action_just_released("reset"):
-        $PlayerCamera.reset()
+        # $PlayerCamera.reset()
         $PlayerCamera.stabilize()
 
 
